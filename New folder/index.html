@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year Countdown</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+
+    <style>
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #fff;
+            border-radius: 50%;
+            animation: explode 2s ease-out infinite;
+        }
+
+        .firework:nth-child(1) {
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .firework:nth-child(2) {
+            left: 40%;
+            animation-delay: 0.5s;
+        }
+
+        .firework:nth-child(3) {
+            left: 60%;
+            animation-delay: 1s;
+        }
+
+        .firework:nth-child(4) {
+            left: 80%;
+            animation-delay: 1.5s;
+        }
+
+        .firework:nth-child(5) {
+            left: 50%;
+            animation-delay: 2s;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(10);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(20);
+                opacity: 0;
+            }
+        }
+
+        /* Glassmorphism & Text Effects */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .number-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+
+</head>
+
+<body class="bg-cover bg-center min-h-screen"
+    style="background-image: url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+
+    <main class="flex flex-col justify-center items-center min-h-screen text-white text-center">
+
+        <!-- Real Time Display -->
+        <div class="mb-10 glass-panel px-6 py-4 rounded-xl">
+            <h2 class="text-xl font-bold mb-2 uppercase tracking-widest text-blue-200">Current Time</h2>
+            <div id="current-time" class="text-4xl font-mono font-bold text-glow"></div>
+        </div>
+
+        <!-- Countdown -->
+        <div class="glass-panel p-10 rounded-3xl mx-4 max-w-4xl w-full">
+            <h1
+                class="text-5xl md:text-7xl font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white drop-shadow-lg">
+                New Year Countdown</h1>
+
+            <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+                <!-- Content injected by JS -->
+            </div>
+
+            <div class="fixed top-4 right-4 flex gap-2 z-50">
+                <button id="settings-btn"
+                    class="p-2 bg-gray-700/80 backdrop-blur-sm text-white rounded-full hover:bg-gray-600 transition-colors border border-gray-600"
+                    title="Settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button id="fullscreen-btn"
+                    class="p-2 bg-blue-600/80 backdrop-blur-sm text-white rounded-full hover:bg-blue-500 transition-colors border border-blue-500"
+                    title="Toggle Fullscreen">
+                    <i class="fas fa-expand"></i>
+                </button>
+            </div>
+
+            <!-- Settings Modal -->
+            <div id="settings-modal"
+                class="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center hidden z-[60]">
+                <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 max-w-md w-full mx-4 shadow-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-white border-b border-gray-700 pb-2">Timer Settings</h3>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-400 mb-2 text-sm font-medium">Target Date & Time</label>
+                        <input type="datetime-local" id="target-datetime"
+                            class="w-full bg-gray-800 text-white p-3 rounded-lg border border-gray-700 focus:border-blue-500 focus:outline-none transition-colors">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-400 mb-2 text-sm font-medium">Audio Offset (Seconds)</label>
+                        <p class="text-xs text-gray-500 mb-2">Adjust if sound plays too early/late. Negative plays
+                            earlier.</p>
+                        <input type="number" id="audio-offset" value="0" step="0.1"
+                            class="w-full bg-gray-800 text-white p-3 rounded-lg border border-gray-700 focus:border-blue-500 focus:outline-none transition-colors">
+                    </div>
+
+                    <div class="flex flex-col gap-3">
+                        <button id="save-settings"
+                            class="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-semibold transition-colors shadow-lg shadow-blue-900/20">
+                            Start Countdown
+                        </button>
+                        <button id="test-mode"
+                            class="w-full py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-semibold transition-colors">
+                            Test Mode (15s remaining)
+                        </button>
+                        <button id="close-settings" class="w-full py-2 text-gray-400 hover:text-white text-sm mt-2">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audio for sound -->
+        <audio id="countdown-sound" src="10 Second Countdown Timer with Voice and Sound Effects.mp3"
+            preload="auto"></audio>
+
+        <!-- Fireworks container -->
+        <div id="fireworks" class="fixed inset-0 pointer-events-none hidden">
+            <div class="firework"></div>
+            <div class="firework"></div>
+            <div class="firework"></div>
+            <div class="firework"></div>
+            <div class="firework"></div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
