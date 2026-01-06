@@ -1,14 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DOM</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
 
-
+<body class="">
+    <nav class=" z-10 h-20 w-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center px-4">
+        <!-- Logo -->
+        <div class="w-1/2">
+            <img src="" alt="Logo">
+        </div>
     
-    <script src="script.js"></script>
+        <!-- Menu -->
+        <div class="w-1/2 flex justify-around items-center">
+            <a href="#" class="text-white font-semibold">HOME</a>
+            <a href="#" class="text-white font-semibold">ABOUT US</a>
+            <a href="#" class="text-white font-semibold">CONTACT</a>
+            <a href="#" class="text-white font-semibold">GALLERY</a>
+        </div>
+    </nav>
+    
+
+    <main class="h-screen bg-gradient-to-r from-blue-500 to-purple-600">
+
+        <div class="relative h-[50vh] w-full  bg-center" style="background-image: url('https://imgs.search.brave.com/mbcVITghnH87iXYZPgcKUMESAPLSSsdid6Go9_uKnDQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA0LzE3Lzc4LzQ5/LzM2MF9GXzQxNzc4/NDk3NV9pZ2JOekVv/ODRBOVZyUElhZnBK/NmhvVURvQ1ZKNjU2/ZS5qcGc');">
+            
+            </div>
+   
+
+
+        <div class="absolute top-1/2 left-1/2
+                                -translate-x-1/2 -translate-y-1/2
+                                border rounded-xl  
+                                h-[50%] w-[40%] bg-gradient-to-r from-blue-500 to-purple-600">
+            <div class="text-25 h-[30%] w-[100%]  text-center content-center text-3xl  text-white font-bold "> Sign Up
+                Page</div>
+            <div class="h-[70%] w-full flex flex-col  items-center gap-6 text-center  text-white">
+
+                <input type="text" placeholder="Create Your User ID"
+                    class="border-b text-center w-[40%] h-10 font-bold outline-none">
+
+                <input type="text" placeholder="Create Your Password"
+                    class="border-b text-center w-[40%] h-10 font-bold outline-none">
+
+                <label class="flex items-center justify-center gap-2">
+
+                </label>
+                <div>
+                    <input type="radio">
+                    <span>Remember me</span>
+                </div>
+                <button onclick="eligeble()">Sign up</button>
+
+            </div>
+
+
+        </div>
+    </main>
+
+
+    <script>
+      function  eligeble()
+        {
+                
+        }
+        
+
+    </script>
+
 </body>
+
 </html>
