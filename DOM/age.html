@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="relative">
+    <!-- Navigation Bar -->
+    <nav class="fixed z-20 h-20 w-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center px-4">
+        <div class="w-1/2">
+            <img src="" alt="Logo">
+        </div>
+        <div class="w-1/2 flex justify-around items-center">
+            <a href="#" class="text-white font-semibold">HOME</a>
+            <a href="#" class="text-white font-semibold">ABOUT US</a>
+            <a href="#" class="text-white font-semibold">CONTACT</a>
+            <a href="#" class="text-white font-semibold">GALLERY</a>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <main
+        class="h-screen w-full bg-gradient-to-r from-blue-500 to-purple-600 flex justify-center items-center relative pt-20">
+        <!-- Form Container -->
+        <div class="bg-white z-10 p-8 rounded-xl shadow-lg w-[350px] flex flex-col items-center gap-6">
+            <p class="text-2xl font-semibold text-center">Are you a Student of Softworica?</p>
+
+            <!-- Radio Buttons -->
+            <form class="flex flex-col gap-3 text-lg w-full" id="studentForm">
+                <label class="flex items-center gap-2">
+                    <input type="radio" name="student" value="yes" class="form-radio">
+                    <span>Yes</span>
+                </label>
+                <label class="flex items-center gap-2">
+                    <input type="radio" name="student" value="no" class="form-radio">
+                    <span>No</span>
+                </label>
+            </form>
+
+            <!-- Submit Button -->
+            <button onclick="submitForm()"
+                class="w-full p-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 transition">
+                Submit
+            </button>
+
+            <!-- Success Message -->
+            <p id="signup" class="hidden text-green-600 font-bold text-xl text-center mt-4">
+                Sign Up Successful!
+            </p>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        function submitForm() {
+            const selected = document.querySelector('input[name="student"]:checked');
+            const message = document.getElementById('signup');
+
+            if (!selected) {
+                alert("Please select an option.");
+                message.classList.add('hidden');
+                return;
+            }
+
+            if (selected.value === 'yes') {
+                message.classList.remove('hidden');
+            } else {
+                message.classList.add('hidden');
+                alert("Please select Yes to sign up successfully.");
+            }
+        }
+    </script>
+</body>
+
+</html>

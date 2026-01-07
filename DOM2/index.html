@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body class="h-vh w-full bg-blue-200  ">
+  <main class=" flex flex-col items-center justify-center  h-[100vh] w-full">
+
+
+    <div class="bg-blue-300 w-[25%] h-[30%]    border-1 flex items-center justify-center flex-col rounded-xl">
+
+      <p class="text-4xl  font-sm pb-2 text-blue-600">Today callender calendar </p>
+      <p id="time" class="text-4xl text-white"></p>
+      <p id="year" class="text-3xl text-white"></p>
+      <p id="day" class="text-2xl text-white"></p>
+
+    <div class="pt-4">
+      <button class="  bg-blue-400 p-2   border-1 flex items-center justify-center flex-col rounded-sm hover:text-white  hover:font-bold" onclick="toggle()">SET
+        AS
+        AM/PM</button>
+    </div>
+    </div>
+    
+  </main>
+
+
+  <script>
+
+
+    setInterval(() => {
+      const now = new Date();
+      const time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+      const year = now.getFullYear() + "/" + (now.getMonth() + 1) + "/" + now.getDate();
+      const day = now.getDay();
+      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      const dayName = days[day - 1];
+      document.getElementById("time").innerHTML = time;
+      document.getElementById("year").innerHTML = "Date:" + year;
+      document.getElementById("day").innerHTML = "Day:" + dayName;
+      console.log(day);
+      function toggle(){
+          
+      }
+
+
+    }, 1000);
+
+
+
+
+  </script>
+</body>
+
+</html>
