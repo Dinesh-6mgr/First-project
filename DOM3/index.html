@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @media screen and (max-width:600px) {
+            #navlink {
+                display: none;
+
+                #main{
+                    padding-top: 5;
+                    padding-left: 100px;
+                }
+            }
+        }
+
+        @media screen and (min-width: 600px) {
+            #bar {
+                display: none;
+                height: 1px;
+            }
+            #main{
+                    padding-top: 5;
+                    padding-left: 50px;
+                }
+        }
+    </style>
+</head>
+
+<body class="h-vh w-full">
+    <nav class="h-[8vh] w-full bg-white flex items-center px-5 border-b border-gray-300">
+        <div class="flex-1 text-white">
+            <img src="https://ultimateqa.com/wp-content/uploads/2023/11/logo.svg"
+                alt="LOGO" class="  object-cover " >
+        </div>
+
+        <div class="flex gap-10 text-sm font-semibold text-gray-500 px-5" id="navlink">
+            <a href="##">Services</a>
+            <a href="##">Porjects</a>
+            <a href="##">Case Studies</a>
+            <a href="##">Newsletter</a>
+            <a href="##">Education</a>
+            <a href="##">About</a>
+        </div>
+
+        <div class="text-gray-500 text-3xl" id="bar">
+            <button onclick="Clicked()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    <div class="hidden flex flex-col  gap-5 p-4 text-xl font-semibold text-gray-500" id="hiddennav">
+        <a href="##">Services</a>
+        <a href="##">Porjects</a>
+        <a href="##">Case Studies</a>
+        <a href="##">Newsletter</a>
+        <a href="##">Education</a>
+        <a href="##">About</a>
+    </div>
+    
+    <main class="" id="main">
+        <h1 class="text-3xl text-blue-800 pt-5">
+            20 Websites to Practice Automation Testing (UI, API, Mobile)
+        </h1>
+        <p class="font-semibold py-5">by <a href="##" class="text-blue-400">Poul </a> | Feb 4, 2019 <a href="##"
+                class="text-blue-400">Resources</a> | <a class="text-blue-400" href="###">14 comment</a></p>
+                <img src="https://b1472923.smushcdn.com/1472923/wp-content/uploads/2019/02/Blog-Posts-21.png?size=867x0&lossy=0&strip=1&webp=1" alt="">
+                <p class="pt-5">
+                    We need websites to practice our test automation skills, wouldn’t you agree?
+                </p>
+                <p>
+                    Where do you go when you need to learn how to deal with AJAX, Angular, Kendo, and other dynamic elements?
+                </p>
+                <p>Hence, I compiled a list of my favorite websites to practice test automation:
+                </p>
+    </main>
+
+
+    <script>
+        function Clicked() {
+            document.getElementById("hiddennav").classList.toggle("hidden");
+        }
+    </script>
+
+</body>
+
+</html>

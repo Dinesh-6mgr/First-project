@@ -35,8 +35,16 @@
 
     setInterval(() => {
       const now = new Date();
-      const time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-      const year = now.getFullYear() + "/" + (now.getMonth() + 1) + "/" + now.getDate();
+
+      let hour = now.getHours();
+      let A= "AM"
+      if(hour>12){
+        hour = hour-12;
+       A="PM"
+
+      }
+      const time = hour +":"+now.getMinutes()+":"+now.getSeconds()+A;
+  console.log(time)
       const day = now.getDay();
       const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
       const dayName = days[day - 1];
@@ -45,7 +53,10 @@
       document.getElementById("day").innerHTML = "Day:" + dayName;
       console.log(day);
       function toggle(){
-          
+
+        
+
+
       }
 
 
