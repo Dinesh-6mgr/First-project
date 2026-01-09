@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @media screen and (max-width:600px) {
+            #navlink {
+                display: none;
+
+                #main {
+                    padding-top: 5;
+                    padding-left: 100px;
+                }
+            }
+        }
+
+        @media screen and (min-width: 600px) {
+            #bar {
+                display: none;
+                height: 1px;
+            }
+
+            #main {
+                padding-top: 5;
+                padding-left: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body class="h-vh w-full">
+    <nav class="h-[8vh] w-full bg-white flex items-center px-5 border-b border-gray-300 fixed">
+        <div class="flex-1 text-white">
+            <img src="https://ultimateqa.com/wp-content/uploads/2023/11/logo.svg" alt="LOGO" class="  object-cover ">
+        </div>
+
+        <div class="flex  gap-10 text-sm font-semibold text-gray-500 px-5" id="navlink">
+            <a href="##">Services</a>
+            <a href="##">Porjects</a>
+            <a href="##">Case Studies</a>
+            <a href="##">Newsletter</a>
+            <a href="##">Education</a>
+            <a href="##">About</a>
+        </div>
+
+        <div class="text-gray-500 text-3xl" id="bar">
+            <button onclick="Clicked()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    <div class="hidden flex flex-col  gap-5 p-4 text-xl font-semibold text-gray-500" id="hiddennav">
+        <a href="##">Services</a>
+        <a href="##">Porjects</a>
+        <a href="##">Case Studies</a>
+        <a href="##">Newsletter</a>
+        <a href="##">Education</a>
+        <a href="##">About</a>
+    </div>
+
+    <main class="bg-[url('https://media.istockphoto.com/id/1127686489/photo/business-network-concept.jpg?s=612x612&w=0&k=20&c=CI_0WwgJU-qAyOxLTCrm5L1HEsR2u_SXCAGeFAZyOTY=')] 
+        bg-cover bg-center h-screen w-full">
+        <div>
+
+        </div>
+
+    </main>
+    <div class="bg-blue-300">
+        <marquee behavior="" direction="left" class="p-5 text-4xl text-white ">कृपया आफ्नो जुत्ताको सुरक्षा आफै
+            गर्नुहोला।</marquee>
+
+    </div>
+    <div class=" flex items-center  px-100 py-5 text-5xl">
+        <i class="fa-solid fa-angle-left"></i>
+        <marquee behavior="scroll" direction="left" >
+            
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png">
+
+            </marquee>
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </div>
+
+
+
+    <div class="bg-blue-100 p-5">
+        <P class="text-center text-2xl font-semibold pt-5 "> OUR ACHIVEMENT</P>
+        <p>Achievements are significant successes, from finishing a marathon to getting a promotion, that show your
+            capabilities
+            and growth, often involving overcoming challenges or creating positive change in work, hobbies, or personal
+            life, and
+            highlighting them effectively involves tailoring them to specific contexts like job applications by focusing
+            on impact
+            and value. </p>
+
+        <div class="pt-5 px-8   pb-2 w-full flex justify-around items-center relative ">
+
+            <div class="p-2 bg-blue-200 rounded-sm  border-b h-[5%] content-center">
+                <h1 class="text-3xl">STUDENT</h1>
+                <p class="text-2xl text-center" id="student"></p>
+
+            </div>
+            <div class="p-2 bg-blue-200 rounded-sm  border-b h-[5%] content-center">
+                <h1 class="text-3xl">COURCES</h1>
+                <p class="text-2xl text-center" id="cource"></p>
+
+            </div>
+
+            <div class="p-2 bg-blue-200 rounded-sm  border-b h-[5%] content-center">
+                <h1 class="text-3xl">Teacher</h1>
+                <p class="text-2xl text-center" id="teacher">1</p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+
+        let counts = 0;
+        let countc = 0;
+        let countt = 0;
+
+        const counterInterval = setInterval(() => {
+            if (counts < 500) {
+                counts++;
+                document.getElementById("student").innerHTML = counts + "+Student";
+            }
+        }, 1);
+
+        const countCources = setInterval(() => {
+            if (countc < 10) {
+                countc++;
+                document.getElementById("cource").innerHTML = countc + "+Cources";
+            }
+
+        }, 100);
+
+        const counterTeacher = setInterval(() => {
+            if (countt < 55) {
+                countt++;
+                document.getElementById("teacher").innerHTML = countt + "+Teacher";
+            }
+        }, 50);
+
+    </script>
+
+</body>
+
+</html>

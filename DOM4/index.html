@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body class="h-100vh">
+
+    <div class="h-[50vh]  bg-blue-500 relative" id="div">
+        <div class="h-[10vh] w-[10vh] rounded-full    absolute transform duration-100000 bg-[url('https://d2nlxobz6p44e5.cloudfront.net/img/goods/S/DFSKB-370CPp01.jpg')]" id="circle">
+            <img src="https://d2nlxobz6p44e5.cloudfront.net/img/goods/S/DFSKB-370CPp01.jpg" alt="" >
+        </div>
+    </div>
+
+
+    <div>
+        <br>
+
+    </div>
+    <script>
+
+    const div = document.getElementById("div")
+    const circle = document.getElementById("circle")
+
+        div.addEventListener("mousemove", (e)=> {
+
+            console.log( e.x)
+            console.log(e.y)
+            console.log(e);
+            
+
+            circle.style.left = `${e.x-40}px`
+            circle.style.top = `${e.y-40}px`
+
+
+        })
+
+    </script>
+</body>
+
+</html>
