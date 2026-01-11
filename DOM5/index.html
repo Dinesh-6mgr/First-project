@@ -80,14 +80,14 @@
             गर्नुहोला।</marquee>
 
     </div>
-    <div class=" flex items-center  px-100 py-5 text-5xl">
-        <i class="fa-solid fa-angle-left"></i>
-        <marquee behavior="scroll" direction="left" >
+    <div class=" flex items-center justify-center   py-5 text-5xl">
+        <i class="fa-solid fa-angle-left" onclick="backward()"></i>
+        <div behavior="slide" direction="left" class="w-[70%] h-[30%]" >
             
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png">
+            <img  id="image" class="h-[30%] w-full">
 
-            </marquee>
-        <i class="fa-solid fa-chevron-right"></i>
+        </div>
+        <i class="fa-solid fa-chevron-right " onclick="forward()"></i>
 
     </div>
 
@@ -105,7 +105,7 @@
 
         <div class="pt-5 px-8   pb-2 w-full flex justify-around items-center relative ">
 
-            <div class="p-2 bg-blue-200 rounded-sm  border-b h-[5%] content-center">
+            <div class="p-2 bg-blue-200 rounded-sm  border-b space-5 content-center">
                 <h1 class="text-3xl">STUDENT</h1>
                 <p class="text-2xl text-center" id="student"></p>
 
@@ -126,8 +126,6 @@
 
 
     <script>
-
-
         let counts = 0;
         let countc = 0;
         let countt = 0;
@@ -135,26 +133,54 @@
         const counterInterval = setInterval(() => {
             if (counts < 500) {
                 counts++;
-                document.getElementById("student").innerHTML = counts + "+Student";
+                document.getElementById("student").innerHTML = counts + "+ Students";
             }
         }, 1);
 
         const countCources = setInterval(() => {
             if (countc < 10) {
                 countc++;
-                document.getElementById("cource").innerHTML = countc + "+Cources";
+                document.getElementById("cource").innerHTML = countc + "+ Courses";
             }
-
         }, 100);
 
         const counterTeacher = setInterval(() => {
             if (countt < 55) {
                 countt++;
-                document.getElementById("teacher").innerHTML = countt + "+Teacher";
+                document.getElementById("teacher").innerHTML = countt + "+ Teachers";
             }
         }, 50);
 
+
+        let image = document.getElementById("image");
+
+        let images = [
+            "https://i.ytimg.com/vi/ZkOohAJCRKw/maxresdefault.jpg",
+            "https://i.ytimg.com/vi/TxAfxbcue1Q/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCwVh9S5tMQGd40usODKJwJOLHOHA",
+            "https://tripguidenepal.com/wp-content/uploads/2023/07/Taskera-Villaage-1290x540.jpg",
+            "https://risingnepaldaily.com/storage/media/8551/himal.jpg"
+        ];
+        let n = 0;
+
+        image.src = images[n];
+
+        function forward() {
+            n++;
+
+            if( n>=images.length)
+            n=0;
+            image.src = images[n];
+        }
+
+        function backward() {
+                n--;
+                if(n==-1)
+                n= images.length -1
+                image.src = images[n];
+            }
+
     </script>
+    
 
 </body>
 
