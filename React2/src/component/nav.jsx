@@ -27,6 +27,9 @@ function Nav() {
                         <a href="/about" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">
                             About
                         </a>
+                        <a href="/card" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">
+                            Card
+                        </a>
                         <a href="/contact" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
                             Contact
                         </a>
@@ -57,6 +60,9 @@ function Nav() {
                             </a>
                             <a href="/about" className="py-2 px-4 hover:bg-gray-100 rounded-lg transition-colors">
                                 About
+                            </a>
+                            <a href="/card" className="py-2 px-4 hover:bg-gray-100 rounded-lg transition-colors">
+                                Card
                             </a>
                             <a href="/contact" className="py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors mt-2">
                                 Contact
