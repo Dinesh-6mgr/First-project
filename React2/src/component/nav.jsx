@@ -30,6 +30,9 @@ function Nav() {
                         <a href="/card" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">
                             Card
                         </a>
+                        <a href="/courses" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">
+                            Courses
+                        </a>
                         <a href="/contact" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
                             Contact
                         </a>

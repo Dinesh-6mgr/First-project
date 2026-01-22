@@ -1,24 +1,27 @@
 import React from 'react';
-import Home from '../pages/Home';
+import { useState } from 'react';
+import friend from '../pages/friend';
+import { toast, ToastContainer } from 'react-toastify';
 
-function Card() {
-    const users = [
-        { id: 1, name: "Dinesh Rana", status: "Active", level: "Beginner", image: "https://randomuser.me/api/portraits/men/1.jpg" },
-        { id: 2, name: "Santosh Sharma", status: "Active", level: "Intermediate", image: "https://randomuser.me/api/portraits/men/2.jpg" },
-        { id: 3, name: "Ramesh Thapa", status: "Inactive", level: "Advanced", image: "https://randomuser.me/api/portraits/men/3.jpg" },
-        { id: 4, name: "Sita Gurung", status: "Active", level: "Beginner", image: "https://randomuser.me/api/portraits/women/4.jpg" },
-        { id: 5, name: "Kiran Shrestha", status: "Active", level: "Intermediate", image: "https://randomuser.me/api/portraits/men/5.jpg" },
-        { id: 6, name: "Anita Tamang", status: "Inactive", level: "Advanced", image: "https://randomuser.me/api/portraits/women/6.jpg" },
-        { id: 7, name: "Raj Pandey", status: "Active", level: "Beginner", image: "https://randomuser.me/api/portraits/men/7.jpg" },
-        { id: 8, name: "Sanjana Magar", status: "Active", level: "Intermediate", image: "https://randomuser.me/api/portraits/women/8.jpg" },
-        { id: 9, name: "Bibek KC", status: "Inactive", level: "Advanced", image: "https://randomuser.me/api/portraits/men/9.jpg" },
-        { id: 10, name: "Pratiksha Rai", status: "Active", level: "Beginner", image: "https://randomuser.me/api/portraits/women/10.jpg" }
-    ];
-    
+export default function Card(props) {
+   const  [friend, setFriend] = useState(true)
 
+    function Addfriend (){
+        setFriend(!friend)
+        friend ? toast.success(`add friend sucessfully`,{
+            autoClose:1000
+        }) : toast.error(`remove friend sucessfully`,{ autoClose: 1000 })
+
+    }
+    let massage = friend ? (`add friend `) : (`remove friend `)
     return (
-        <Home users={users} />
-    );  
+        <div style={{ border: '1px solid gray', padding: '10px', margin: '10px', textAlign: 'center' }}>
+            <img src={props.image} alt={props.name} style={{ width: '100px', borderRadius: '50%' }} />
+            <p>{friend ? (`Sent frined request`):(`you are friend now`)}</p>
+            <p className='text-2xl pb-2'> {props.name}</p>
+            <button onClick={Addfriend} className={`rounded-sm px-2 py-1 text-white text-xl ${friend? (`bg-green-500`):(`bg-red-500`)}`}>{massage}</button>
+            <ToastContainer />
+        </div>
+    );
 }
-
-export default Card;
+    

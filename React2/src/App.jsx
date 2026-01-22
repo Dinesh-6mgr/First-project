@@ -9,8 +9,8 @@ import Contact from './pages/contact'
 import Rendom from './pages/rendom'
 import Song from './pages/song'
 import Friend from './pages/friend'
-import Card from './component/card'
-import UserCard from './component/UserCard'
+import Courses from './pages/courses'
+
 function main() {
   return (
     <div>
@@ -24,8 +24,7 @@ function main() {
           < Route path='/rendom' element={<Rendom/>}/>
           < Route path='/song' element={<Song/>}/>
           < Route path='/friend' element={<Friend/>}/>
-          < Route path='/card' element={<Card/>}/>
-          < Route path='/userCard' element={<UserCard/>}/>
+          < Route path='/courses' element = {<Courses/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>
