@@ -6,7 +6,7 @@ function PostDetail() {
     const { id } = useParams();
     const [post, setPost] = useState(null);
     const [comments, setComments] = useState([]);
-    const [users, setusers] = useState([]);
+    const [users, setusers] = useState();
 
 
     const fetchPost = async () => {
@@ -16,8 +16,8 @@ function PostDetail() {
             const userId = getPost.data.userId;
 
             const getuser = await axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`);
-            console.log('user ', getuser.data);
-            setusers(getuser)
+            console.log('user ', getuser.data.name);
+            setusers(getuser.data)
             setPost(getPost.data);
         } catch (error) {
             console.error("Error fetching post:", error);
@@ -50,14 +50,24 @@ function PostDetail() {
 
 
 
-    if (!post) return <p>Loading...</p>;
+    if (!post) return <div className="w-screen h-screen overflow-hidden">
+        <p className="text-center">LOading.........</p>
+        <img
+            src="https://i.imgflip.com/5qf4vx.png"
+            alt="Full Screen"
+            className="w-full h-full object-cover"
+        />
+    </div>;
 
     return (
         <div className='bg-gray-100 min-h-[80vh] p-10'>
             <img src="https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg" alt="post" className='w-full h-48 object-cover rounded mb-3'
             />
             <h1 className='text-3xl font-bold mb-5'>{post.title}</h1>
-            <p className='mb-10'>{post.body}</p>
+            <p className='mb-5'>{post.body}</p>
+
+            <p className=' text-blue-500 text-right  '>Arthur:{users.name }</p>
+            
 
             <h1 className='text-xl text-blue-500 pt-5 mb-5 text-center font-bold'>Comments</h1>
 

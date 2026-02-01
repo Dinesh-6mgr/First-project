@@ -1,1 +1,198 @@
 @import "tailwindcss";
+
+/* ===== Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+}
+
+/* ===== Clean Button Styles ===== */
+.btn-primary {
+  @apply inline-flex items-center justify-center px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center px-6 py-2.5 border border-gray-300 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-50 transition-colors duration-200;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center px-4 py-2 text-gray-600 text-sm font-medium hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors duration-200;
+}
+
+/* ===== Clean Card Styles ===== */
+.card {
+  @apply bg-white rounded-xl border border-gray-200 p-6 hover:shadow-sm transition-shadow duration-200;
+}
+
+.card-compact {
+  @apply bg-white rounded-lg border border-gray-200 p-4 hover:shadow-sm transition-shadow duration-200;
+}
+
+/* ===== Input Styles ===== */
+.input-field {
+  @apply w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm placeholder-gray-500 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 outline-none transition-colors duration-200;
+}
+
+/* ===== Typography ===== */
+.heading-xl {
+  @apply text-4xl font-bold text-gray-900 tracking-tight;
+}
+
+.heading-lg {
+  @apply text-3xl font-bold text-gray-900 tracking-tight;
+}
+
+.heading-md {
+  @apply text-xl font-semibold text-gray-900;
+}
+
+.text-muted {
+  @apply text-gray-600;
+}
+
+.text-subtle {
+  @apply text-gray-500 text-sm;
+}
+
+/* ===== Layout ===== */
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.section {
+  @apply py-12;
+}
+
+/* ===== Navigation ===== */
+.nav-link {
+  @apply px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors duration-200;
+}
+
+.nav-link-active {
+  @apply px-3 py-2 text-sm font-medium text-gray-900 bg-gray-100 rounded-md;
+}
+
+/* ===== Stats Cards ===== */
+.stat-card {
+  @apply bg-white rounded-xl border border-gray-200 p-6 text-center;
+}
+
+.stat-number {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.stat-label {
+  @apply text-sm text-gray-600 mt-1;
+}
+
+/* ===== Post Cards ===== */
+.post-card {
+  @apply bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-sm transition-shadow duration-200;
+}
+
+.post-image {
+  @apply w-full h-48 object-cover bg-gray-100;
+}
+
+.post-content {
+  @apply p-6;
+}
+
+.post-title {
+  @apply font-semibold text-gray-900 mb-2 line-clamp-2;
+}
+
+.post-excerpt {
+  @apply text-gray-600 text-sm line-clamp-3 leading-relaxed;
+}
+
+.post-meta {
+  @apply flex items-center justify-between pt-4 mt-4 border-t border-gray-100;
+}
+
+/* ===== User Cards ===== */
+.user-card {
+  @apply bg-white rounded-xl border border-gray-200 p-6 text-center hover:shadow-sm transition-shadow duration-200;
+}
+
+.user-avatar {
+  @apply w-16 h-16 rounded-full mx-auto mb-4 bg-gray-100;
+}
+
+.user-name {
+  @apply font-semibold text-gray-900 mb-1;
+}
+
+.user-username {
+  @apply text-gray-600 text-sm mb-4;
+}
+
+.user-info {
+  @apply space-y-2 text-left;
+}
+
+.user-info-item {
+  @apply flex items-center gap-2 text-sm text-gray-600;
+}
+
+/* ===== Utility Classes ===== */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ===== Loading ===== */
+.loading-spinner {
+  @apply animate-spin rounded-full h-8 w-8 border-2 border-gray-300 border-t-gray-900;
+}
+
+/* ===== Search ===== */
+.search-container {
+  @apply relative max-w-md mx-auto;
+}
+
+.search-input {
+  @apply w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg text-sm placeholder-gray-500 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 outline-none transition-colors duration-200;
+}
+
+.search-icon {
+  @apply absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400;
+}
+
+/* ===== Footer ===== */
+.footer-section {
+  @apply space-y-3;
+}
+
+.footer-title {
+  @apply font-semibold text-gray-900 mb-4;
+}
+
+.footer-link {
+  @apply block text-gray-600 hover:text-gray-900 transition-colors duration-200;
+}
+
+.social-links {
+  @apply flex justify-center gap-4;
+}
+
+.social-link {
+  @apply w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors duration-200;
+}
